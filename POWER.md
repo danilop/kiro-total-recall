@@ -1,5 +1,6 @@
 ---
 name: "kiro-total-recall"
+version: "0.1.0"
 displayName: "Kiro Total Recall"
 description: "Semantic search across Kiro CLI and IDE conversation history - find past discussions by meaning, not just keywords"
 keywords: ["history", "recall", "remember", "past conversation", "previous chat", "what did we discuss", "how did we", "like we discussed", "as I mentioned"]
