@@ -22,7 +22,7 @@ Ever told Kiro "like we discussed yesterday" only to realize... it has no idea?
 
 ### Manual MCP Setup (CLI and IDE)
 
-Add to `~/.kiro/settings/mcp.json`:
+Add to `~/.kiro/settings/mcp.json` (this config is shared by both CLI and IDE):
 
 ```json
 {
