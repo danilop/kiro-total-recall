@@ -1,15 +1,30 @@
 """FastMCP server for Kiro Total Recall."""
 
 import os
+import threading
 from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
 
-from .config import get_config
+from .indexer import get_index
 from .models import Source
 from .query import search_conversations
 
 mcp = FastMCP("kiro-total-recall")
+
+
+def _preload_index():
+    """Preload embedding model and index in background (non-blocking)."""
+    try:
+        index = get_index()
+        _ = index.model  # Trigger model load
+        index.ensure_index()  # Build index
+    except Exception:
+        pass  # Errors will surface on actual search
+
+
+# Start preloading in daemon thread - doesn't block server startup
+threading.Thread(target=_preload_index, daemon=True).start()
 
 
 def _get_current_workspace() -> str | None:
