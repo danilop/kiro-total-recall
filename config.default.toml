@@ -1,0 +1,35 @@
+# Default configuration for Kiro Total Recall
+# Copy to ~/.config/kiro-total-recall/config.toml to customize
+
+[sources.cli]
+enabled = true
+# SQLite database path - first existing path wins
+paths = [
+    "~/Library/Application Support/kiro-cli/data.sqlite3",
+    "~/.local/share/kiro-cli/data.sqlite3",
+    "~/AppData/Roaming/kiro-cli/data.sqlite3",
+]
+
+[sources.ide]
+enabled = true
+# Glob patterns for .chat files - first existing pattern wins
+patterns = [
+    "~/Library/Application Support/Kiro/User/globalStorage/kiro.kiroagent/*/*.chat",
+    "~/.config/Kiro/User/globalStorage/kiro.kiroagent/*/*.chat",
+    "~/AppData/Roaming/Kiro/User/globalStorage/kiro.kiroagent/*/*.chat",
+]
+
+[embedding]
+model = "all-MiniLM-L6-v2"
+cache_dir = "~/.cache/kiro-total-recall"
+
+[search]
+default_threshold = 0.2
+default_max_results = 10
+default_context_window = 3
+
+[memory]
+# Fraction of RAM to use for index (0.33 = 1/3)
+fraction = 0.33
+# Uncomment to set explicit limit in MB instead of fraction
+# limit_mb = 512
