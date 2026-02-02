@@ -29,7 +29,7 @@ Add to `~/.kiro/settings/mcp.json`:
   "mcpServers": {
     "total-recall": {
       "command": "uvx",
-      "args": ["kiro-total-recall"]
+      "args": ["--from", "git+https://github.com/danilop/kiro-total-recall", "kiro-total-recall"]
     }
   }
 }
